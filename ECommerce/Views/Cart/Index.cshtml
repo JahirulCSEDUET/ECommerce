@@ -1,0 +1,119 @@
+﻿@model ECommerce.Presentation.Modules.Carts.ViewModels.CartVM
+
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-end mb-4">
+        <h1 class="display-6 fw-bold mb-0">Your Cart</h1>
+        <span class="text-muted fs-5">@Model.TotalItems items</span>
+    </div>
+
+    @if (Model.Items == null || !Model.Items.Any())
+    {
+        <div class="empty-cart-container bg-light rounded-4 shadow-sm text-center py-5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#adb5bd" class="bi bi-cart-x mb-4" viewBox="0 0 16 16">
+                <path d="M7.354 5.646a.5.5 0 1 0-.708.708L7.793 7.5 6.646 8.646a.5.5 0 1 0 .708.708L8.5 8.207l1.146 1.147a.5.5 0 0 0 .708-.708L9.207 7.5l1.147-1.146a.5.5 0 0 0-.708-.708L8.5 6.793 7.354 5.646z" />
+                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+            </svg>
+            <h3 class="fw-bold text-dark">Your cart is currently empty</h3>
+            <p class="text-muted mb-4">Before proceeding to checkout, you must add some products.</p>
+            <a asp-controller="Store" asp-action="Index" class="btn btn-primary btn-lg px-5 rounded-pill">Return to Shop</a>
+        </div>
+    }
+    else
+    {
+        <div class="row gx-5">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="card border-0 shadow-sm rounded-4 p-4">
+
+                    <div class="row d-none d-md-flex text-muted fw-bold pb-2 border-bottom">
+                        <div class="col-md-5">Product</div>
+                        <div class="col-md-2 text-center">Price</div>
+                        <div class="col-md-3 text-center">Quantity</div>
+                        <div class="col-md-2 text-end">Total</div>
+                    </div>
+
+                    @foreach (var item in Model.Items)
+                    {
+                        <div class="row align-items-center cart-item-row py-3 border-bottom">
+                            <div class="col-12 col-md-5 d-flex align-items-center mb-3 mb-md-0">
+                                <div class="bg-light rounded p-2 me-3">
+                                    <i class="bi bi-box-seam text-secondary fs-3"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0 fw-bold">
+                                        <a asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId" class="text-dark text-decoration-none">@item.ProductName</a>
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-md-2 text-md-center fw-semibold text-secondary mb-3 mb-md-0">
+                                <span class="d-md-none text-muted small fw-normal">Price: </span>
+                                @item.UnitPrice.ToString("C")
+                            </div>
+
+                            <div class="col-6 col-md-3 d-flex justify-content-md-center mb-3 mb-md-0">
+                                <form asp-controller="Cart" asp-action="Update" asp-route-productId="@item.ProductId" method="post" class="m-0">
+                                    <div class="input-group input-group-sm shadow-sm rounded overflow-hidden" style="max-width: 130px;">
+
+                                        <input type="number" name="quantity" class="form-control text-center border-secondary fw-bold bg-light" value="@item.Quantity" min="1" aria-label="Quantity">
+
+                                        <button type="submit" class="btn btn-outline-secondary border-secondary bg-white text-primary px-3 transition-hover" title="Update Quantity">
+                                            <i class="bi bi-arrow-clockwise"></i>
+                                        </button>
+
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="col-12 col-md-2 d-flex justify-content-between justify-content-md-end align-items-center">
+                                <span class="fw-bold text-dark fs-5">@item.LineTotal.ToString("C")</span>
+
+                                <form asp-controller="Cart" asp-action="Remove" asp-route-productId="@item.ProductId" method="post" class="ms-3">
+                                    <button type="submit" class="btn text-danger bg-transparent border-0 p-1" title="Remove Item">
+                                        <i class="bi bi-trash3 fs-5"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="cart-summary-card shadow-sm border border-light p-4 bg-light rounded-4 sticky-top" style="top: 2rem;">
+                    <h4 class="fw-bold mb-4">Order Summary</h4>
+
+                    <div class="d-flex justify-content-between mb-3 text-muted">
+                        <span>Subtotal (@Model.TotalItems items)</span>
+                        <span>@Model.GrandTotal.ToString("C")</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-3 text-muted">
+                        <span>Shipping</span>
+                        <span>Calculated at checkout</span>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="d-flex justify-content-between mb-4">
+                        <span class="fs-5 fw-bold">Total</span>
+                        <span class="fs-4 fw-bold text-primary">@Model.GrandTotal.ToString("C")</span>
+                    </div>
+
+                    <a asp-controller="Checkout" asp-action="Index" class="btn btn-dark btn-lg w-100 rounded-pill fw-bold shadow-sm">
+                        Proceed to Checkout
+                    </a>
+
+                    <div class="text-center mt-3">
+                        <a asp-controller="Store" asp-action="Index" class="text-decoration-none text-muted small fw-semibold">
+                            <i class="bi bi-arrow-left me-1"></i> Continue Shopping
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,56 @@
+﻿@using System.Diagnostics
+@{
+    ViewData["Title"] = "Server Error";
+
+    var requestId = Activity.Current?.Id ?? ViewContext.HttpContext.TraceIdentifier;
+}
+
+<div class="server-error-wrapper">
+    <div class="server-error-card">
+
+        <div class="server-error-top">
+            <div class="server-error-code">500</div>
+            <div class="server-error-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="server-error-body">
+            <h1>Internal Server Error</h1>
+            <p>
+                The server encountered an unexpected condition
+                that prevented it from fulfilling your request.
+                Our team has been notified automatically.
+            </p>
+
+            @if (!string.IsNullOrEmpty(requestId))
+            {
+                <div class="error-detail-box">
+                    <span>Request ID</span>
+                    <p>@requestId</p>
+                </div>
+            }
+
+            <div class="notfound-actions">
+                <a asp-action="Index" asp-controller="Home" class="btn-home">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" />
+                    </svg>
+                    Go Home
+                </a>
+                <a href="javascript:history.back()" class="btn-back-ghost">
+                    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+                    Try Again
+                </a>
+            </div>
+        </div>
+
+        <div class="server-error-footer">
+            Error 500 — If this keeps happening, please contact support.
+        </div>
+
+    </div>
+</div>

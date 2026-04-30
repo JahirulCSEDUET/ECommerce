@@ -1,0 +1,130 @@
+﻿@{
+    ViewData["Title"] = "Success";
+    var adminName = ViewData["AdminName"] ?? "New Administrator";
+}
+
+<div class="success-wrapper">
+    <div class="success-card">
+        <div class="success-icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+        <h1 class="success-title">Account Created</h1>
+        <p class="success-message">
+            Administrator access has been successfully granted to <br />
+            <span class="admin-highlight">@adminName</span>
+        </p>
+
+        <hr class="divider" />
+
+        <div class="success-details">
+            <p>The new administrator can now manage categories, products, and orders using their credentials.</p>
+        </div>
+
+        <div class="success-actions">
+            <a asp-action="Index" class="btn-create">
+                <i class="bi bi-people me-2"></i> View All Admins
+            </a>
+            <a asp-controller="Home" asp-action="Index" class="btn-outline-secondary btn-action details">
+                <i class="bi bi-speedometer2 me-1"></i> Dashboard
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .success-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 60px 20px;
+        min-height: 70vh;
+    }
+
+    .success-card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        padding: 48px;
+        text-align: center;
+        max-width: 550px;
+        width: 100%;
+        animation: slideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .success-icon-circle {
+        width: 80px;
+        height: 80px;
+        background: var(--accent-light);
+        color: var(--accent);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+    }
+
+    .success-icon-circle svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .success-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.2rem;
+        color: var(--ink);
+        margin-bottom: 12px;
+    }
+
+    .success-message {
+        color: var(--muted);
+        font-family: 'DM Sans', sans-serif;
+        line-height: 1.6;
+        font-size: 1.05rem;
+    }
+
+    .admin-highlight {
+        color: var(--ink);
+        font-weight: 500;
+        text-decoration: underline decoration-color(var(--accent));
+        text-underline-offset: 4px;
+    }
+
+    .divider {
+        margin: 32px 0;
+        border-color: var(--border);
+        opacity: 0.6;
+    }
+
+    .success-details {
+        background: var(--surface);
+        padding: 16px;
+        border-radius: var(--radius);
+        margin-bottom: 32px;
+    }
+
+    .success-details p {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin: 0;
+    }
+
+    .success-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    /* Override btn-create for success context if needed */
+    .btn-create {
+        text-decoration: none;
+    }
+
+    @@keyframes slideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>

@@ -1,0 +1,170 @@
+﻿/* order-list.css */
+
+.order-list-container {
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+    min-height: 80vh;
+}
+
+.order-table-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: none;
+    overflow: hidden; /* Keeps the rounded corners even with the table inside */
+}
+
+.table > thead {
+    background-color: #f1f3f5;
+    color: #495057;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+    padding: 1rem 1.5rem;
+    border-bottom-color: #f1f3f5;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.2s ease;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.4em 0.8em;
+    border-radius: 50rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.status-pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-processing {
+    background-color: #cff4fc;
+    color: #055160;
+}
+
+.status-shipped {
+    background-color: #e0cffc;
+    color: #3b0560;
+}
+
+.status-delivered {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.status-cancelled {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+.customer-info-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.customer-name {
+    font-weight: 600;
+    color: #212529;
+}
+
+.customer-phone {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+/* order-details.css */
+
+.order-details-header {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.info-card {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 1.5rem;
+    height: 100%;
+}
+
+.info-card-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #6c757d;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid #f1f3f5;
+    padding-bottom: 0.5rem;
+}
+
+.info-label {
+    font-size: 0.85rem;
+    color: #adb5bd;
+    margin-bottom: 0.2rem;
+    display: block;
+}
+
+.info-value {
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+}
+
+/* Status Badges (Reused from your list view for consistency) */
+.status-badge {
+    padding: 0.5em 1em;
+    border-radius: 50rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.status-pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-processing {
+    background-color: #cff4fc;
+    color: #055160;
+}
+
+.status-shipped {
+    background-color: #e0cffc;
+    color: #3b0560;
+}
+
+.status-delivered {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.status-cancelled {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+.item-table th {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    font-weight: 600;
+    border-bottom-width: 2px;
+}

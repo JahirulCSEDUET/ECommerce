@@ -1,0 +1,317 @@
+﻿/* Seamless full-height wrapper */
+.flat-auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Adjust based on your layout's navbar/footer */
+    background-color: #ffffff; /* Blends with a standard white website */
+    font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+    padding: 2rem 1rem;
+}
+
+/* The content container (No card, no shadow, no borders) */
+.flat-auth-content {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Header section */
+.auth-header {
+    margin-bottom: 2.5rem;
+}
+
+    .auth-header h2 {
+        margin: 0;
+        color: #111827; /* Near black for strong contrast */
+        font-size: 2.2rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+
+    .auth-header p {
+        color: #6b7280;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+    }
+
+/* Form structure */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.password-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+/* Labels */
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+/* Input fields - Modern soft gray fill instead of a hard border */
+.form-input {
+    padding: 0.85rem 1rem;
+    border: 2px solid transparent; /* Transparent border for smooth focus transition */
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #111827;
+    background-color: #f3f4f6; /* Soft gray */
+    transition: all 0.2s ease;
+}
+
+    .form-input::placeholder {
+        color: #9ca3af;
+    }
+
+    .form-input:focus {
+        outline: none;
+        background-color: #ffffff;
+        border-color: #2563eb; /* Strong blue on focus */
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+    }
+
+/* Checkbox specific styling */
+.form-group-checkbox {
+    margin-top: -0.5rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #4b5563;
+    user-select: none;
+}
+
+.checkbox-input {
+    margin: 0 0.5rem 0 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    cursor: pointer;
+    accent-color: #2563eb;
+}
+
+/* Validation Styling */
+.text-danger {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+    font-weight: 500;
+}
+
+.validation-summary {
+    color: #991b1b;
+    background-color: #fef2f2;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    display: none;
+}
+
+    .validation-summary:not(:empty) {
+        display: block;
+    }
+
+/* Submit Button */
+.btn-submit {
+    margin-top: 0.5rem;
+    background-color: #111827; /* Dark, sleek button */
+    color: #ffffff;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+    .btn-submit:hover {
+        background-color: #374151;
+    }
+
+    .btn-submit:active {
+        transform: scale(0.98);
+    }
+
+/* Links and Footer */
+.forgot-password-link {
+    font-size: 0.85rem;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+    .forgot-password-link:hover {
+        text-decoration: underline;
+    }
+
+.auth-footer {
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    color: #6b7280;
+}
+
+    .auth-footer a {
+        color: #111827;
+        text-decoration: none;
+        font-weight: 600;
+        margin-left: 0.25rem;
+    }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+/* Seamless full-height wrapper */
+.flat-auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #ffffff;
+    font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+    padding: 2rem 1rem;
+}
+
+/* The content container (No card, no shadow, no borders) */
+.flat-auth-content {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Header section */
+.auth-header {
+    margin-bottom: 2.5rem;
+}
+
+    .auth-header h2 {
+        margin: 0;
+        color: #111827;
+        font-size: 2.2rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+
+    .auth-header p {
+        color: #6b7280;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+    }
+
+/* Form structure */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+/* Input fields - Modern soft gray fill */
+.form-input {
+    padding: 0.85rem 1rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #111827;
+    background-color: #f3f4f6;
+    transition: all 0.2s ease;
+}
+
+    .form-input::placeholder {
+        color: #9ca3af;
+    }
+
+    .form-input:focus {
+        outline: none;
+        background-color: #ffffff;
+        border-color: #2563eb;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+    }
+
+/* Validation Styling */
+.text-danger {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+    font-weight: 500;
+}
+
+.validation-summary {
+    color: #991b1b;
+    background-color: #fef2f2;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    display: none;
+}
+
+    .validation-summary:not(:empty) {
+        display: block;
+    }
+
+/* Submit Button */
+.btn-submit {
+    margin-top: 0.5rem;
+    background-color: #111827;
+    color: #ffffff;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+    .btn-submit:hover {
+        background-color: #374151;
+    }
+
+    .btn-submit:active {
+        transform: scale(0.98);
+    }
+
+/* Footer */
+.auth-footer {
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    color: #6b7280;
+}
+
+    .auth-footer a {
+        color: #111827;
+        text-decoration: none;
+        font-weight: 600;
+        margin-left: 0.25rem;
+    }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }

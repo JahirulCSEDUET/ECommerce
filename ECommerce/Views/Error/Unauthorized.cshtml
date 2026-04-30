@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Unauthorized";
+}
+
+<div class="unauthorized-wrapper">
+    <div class="unauthorized-card">
+
+        <div class="unauthorized-top">
+            <div class="unauthorized-code">401</div>
+            <div class="unauthorized-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                    <line x1="18" y1="8" x2="23" y2="13" />
+                    <line x1="23" y1="8" x2="18" y2="13" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="unauthorized-body">
+            <h1>Unauthorized Access</h1>
+            <p>
+                You need to be logged in to view this page.
+                Please sign in with your credentials to continue.
+            </p>
+            <div class="notfound-actions">
+                <a asp-action="Login" asp-controller="Account" class="btn-home">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                        <polyline points="10 17 15 12 10 7" />
+                        <line x1="15" y1="12" x2="3" y2="12" />
+                    </svg>
+                    Sign In
+                </a>
+                <a href="javascript:history.back()" class="btn-back-ghost">
+                    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+                    Go Back
+                </a>
+            </div>
+        </div>
+
+        <div class="unauthorized-footer">
+            Error 401 — Authentication is required to access this resource.
+        </div>
+
+    </div>
+</div>

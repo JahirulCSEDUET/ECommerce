@@ -1,0 +1,152 @@
+﻿/* checkout-page.css */
+
+.checkout-container {
+    background-color: #fcfcfc;
+    padding-bottom: 5rem;
+}
+
+.checkout-form-section {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border: 1px solid #f1f3f5;
+}
+
+.order-summary-section {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    position: sticky;
+    top: 2rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+    .summary-item:last-child {
+        border-bottom: none;
+    }
+
+.product-badge {
+    position: relative;
+    display: inline-block;
+}
+
+.product-badge-count {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background-color: #6c757d;
+    color: white;
+    border-radius: 50%;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.form-floating > label {
+    color: #6c757d;
+}
+
+.form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+.btn-place-order {
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    padding: 1rem;
+}
+/* order-confirmation.css */
+
+.confirmation-container {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+}
+
+.success-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 4rem 3rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    border-top: 5px solid #198754; /* Bootstrap Success Green */
+}
+
+/* Graceful Checkmark Animation */
+.success-icon-wrapper {
+    width: 90px;
+    height: 90px;
+    background-color: #d1e7dd;
+    color: #198754;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem auto;
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    transform: scale(0);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.order-number-box {
+    background-color: #f8f9fa;
+    border: 1px dashed #ced4da;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    display: inline-block;
+    min-width: 250px;
+}
+
+.order-number-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.order-number-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #212529;
+    margin: 0;
+}
+
+.btn-action {
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    border-radius: 50rem;
+    transition: all 0.2s ease;
+}
+
+    .btn-action:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }

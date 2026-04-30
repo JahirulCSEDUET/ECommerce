@@ -1,0 +1,80 @@
+﻿@model ECommerce.Presentation.Modules.Products.ViewModels.ProductEditVM
+
+@{
+    ViewData["Title"] = "Delete Product";
+}
+
+
+<div class="product-container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold text-dark mb-1">Delete Product</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a asp-action="Index" class="text-decoration-none">Products</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Delete</li>
+                </ol>
+            </nav>
+        </div>
+        <a asp-area="Admin" asp-controller="Product" asp-action="Index" class="btn btn-outline-secondary shadow-sm">
+            <i class="bi bi-arrow-left me-2"></i>Back to Catalog
+        </a>
+    </div>
+
+    <div class="alert alert-danger shadow-sm border-0 d-flex align-items-center p-4 mb-4" role="alert">
+        <i class="bi bi-exclamation-triangle-fill fs-3 me-4 text-danger"></i>
+        <div>
+            <h5 class="alert-heading fw-bold mb-1">Are you absolutely sure?</h5>
+            <p class="mb-0">You are about to permanently delete <strong>@Model.Name</strong>. This action cannot be undone.</p>
+        </div>
+    </div>
+
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body p-4">
+            <div class="row align-items-center">
+
+                <div class="col-md-2 text-center border-end">
+                    @if (!string.IsNullOrEmpty(Model.ImagePath))
+                    {
+                        <img src="@Model.ImagePath" alt="@Model.Name" class="img-fluid rounded" style="max-height: 100px; object-fit: cover;" />
+                    }
+                    else
+                    {
+                        <div class="product-icon mx-auto" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                            @Model.Name.Substring(0, 1).ToUpper()
+                        </div>
+                    }
+                </div>
+
+                <div class="col-md-10 ps-md-4 mt-3 mt-md-0">
+                    <h4 class="fw-bold text-dark mb-2">@Model.Name</h4>
+                    <div class="d-flex flex-wrap gap-4 text-muted small mb-2">
+                        <span><i class="bi bi-upc-scan me-1"></i> SKU: <strong class="text-dark">@Model.SKU</strong></span>
+                        <span><i class="bi bi-tag me-1"></i> Price: <strong class="text-success">$@Model.Price.ToString("N2")</strong></span>
+                        <span><i class="bi bi-folder2-open me-1"></i> Category ID: <strong class="text-dark">@Model.CategoryId</strong></span>
+                    </div>
+                    <p class="text-secondary mb-0 text-truncate" style="max-width: 800px;">
+                        @Model.Description
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card border-0 shadow-sm bg-light">
+        <div class="card-body p-4 d-flex justify-content-between align-items-center">
+            <span class="text-muted small"><i class="bi bi-info-circle me-1"></i> Confirming will remove this item from your catalog immediately.</span>
+
+            <form asp-action="DeleteConfirmed" method="post" class="m-0">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="d-flex gap-3">
+                    <a asp-area="Admin" asp-controller="Product" asp-action="Index" class="btn btn-white border px-4">Cancel</a>
+                    <button type="submit" class="btn btn-danger px-4 shadow-sm">
+                        <i class="bi bi-trash me-2"></i>Confirm Deletion
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

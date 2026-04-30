@@ -1,0 +1,54 @@
+﻿@model ECommerce.Presentation.Modules.Categories.ViewModels.CategoryEditVM
+
+@{
+    ViewData["Title"] = "Category Details";
+}
+
+<div class="premium-wrapper">
+    <div class="premium-card">
+        <div class="premium-card-header">
+            <div>
+                <span class="premium-badge">Category Record</span>
+                <h2 class="premium-title">@Model.Name</h2>
+            </div>
+            <div class="premium-header-actions">
+                <a asp-area="Admin" asp-controller="Category" asp-action="Edit" asp-route-id="@Model.Id" class="btn-premium btn-premium-primary">
+                    Edit Details
+                </a>
+            </div>
+        </div>
+
+        <div class="premium-card-body">
+            <dl class="premium-datalist">
+                <div class="data-group">
+                    <dt>Category ID</dt>
+                    <dd class="font-mono">@Html.DisplayFor(model => model.Id)</dd>
+                </div>
+
+                <div class="data-group">
+                    <dt>Category Name</dt>
+                    <dd>@Html.DisplayFor(model => model.Name)</dd>
+                </div>
+
+                <div class="data-group col-span-full">
+                    <dt>Description</dt>
+                    <dd class="data-description">@Html.DisplayFor(model => model.Description)</dd>
+                </div>
+
+                <div class="data-group">
+                    <dt>Date Created</dt>
+                    <dd>@Html.DisplayFor(model => model.CreateDate)</dd>
+                </div>
+            </dl>
+        </div>
+
+        <div class="premium-card-footer">
+            <a asp-area="Admin" asp-controller="Category" asp-action="Index" class="btn-premium btn-premium-ghost">
+                &larr; Back to Directory
+            </a>
+            <a asp-area="Admin" asp-controller="Category" asp-action="Delete" asp-route-id="@Model.Id" class="btn-premium btn-premium-danger">
+                Delete Category
+            </a>
+        </div>
+    </div>
+</div>

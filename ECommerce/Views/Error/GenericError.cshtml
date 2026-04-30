@@ -1,0 +1,58 @@
+﻿@using System.Diagnostics
+@{
+    ViewData["Title"] = "Something Went Wrong";
+
+    var requestId = Activity.Current?.Id ?? ViewContext.HttpContext.TraceIdentifier;
+    var statusCode = ViewContext.HttpContext.Response.StatusCode;
+}
+
+<div class="error-wrapper">
+    <div class="error-card">
+
+        <div class="error-top">
+            <div class="error-code">@statusCode</div>
+            <div class="error-icon-wrap">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="error-body">
+            <h1>Something Went Wrong</h1>
+            <p>
+                An unexpected error occurred while processing your request.
+                Our team has been notified. Please try again later.
+            </p>
+
+            @if (!string.IsNullOrEmpty(requestId))
+            {
+                <div class="error-detail-box">
+                    <span>Request ID</span>
+                    <p>@requestId</p>
+                </div>
+            }
+
+            <div class="notfound-actions">
+                <a asp-action="Index" asp-controller="Home" class="btn-home">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" />
+                    </svg>
+                    Go Home
+                </a>
+                <a href="javascript:history.back()" class="btn-back-ghost">
+                    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+                    Try Again
+                </a>
+            </div>
+        </div>
+
+        <div class="error-footer">
+            Error @statusCode — If this keeps happening, please contact support.
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@model int
+
+@{
+    ViewData["Title"] = "Order Confirmed";
+}
+
+<div class="confirmation-container">
+    <div class="success-card">
+
+        <div class="success-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+            </svg>
+        </div>
+
+        <h1 class="display-6 fw-bold text-dark mb-3">Thank You for Your Order!</h1>
+        <p class="text-muted fs-5 mb-0">
+            Your order has been placed successfully and is now being processed.
+        </p>
+        <p class="text-muted mb-0">
+            We've sent a confirmation email with your receipt and order details.
+        </p>
+
+        <div class="order-number-box">
+            <span class="order-number-label">Order Number</span>
+            <h2 class="order-number-value">#@Model.ToString("D2")</h2>
+        </div>
+
+        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-2">
+            <a asp-controller="Store" asp-action="Index" class="btn btn-dark btn-action">
+                <i class="bi bi-bag me-2"></i> Continue Shopping
+            </a>
+
+            @* <a asp-controller="Account" asp-action="Orders" class="btn btn-outline-secondary btn-action">
+                View Order Details
+            </a> *@
+        </div>
+
+    </div>
+</div>

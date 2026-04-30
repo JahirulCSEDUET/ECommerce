@@ -1,0 +1,55 @@
+﻿@model ECommerce.Presentation.Modules.Account.ViewModels.RegisterVM
+
+@{
+    ViewData["Title"] = "Register";
+    var returnUrl = ViewData["ReturnUrl"];
+}
+
+<div class="flat-auth-wrapper">
+    <div class="flat-auth-content">
+        <div class="auth-header">
+            <h2>Create an Account</h2>
+            <p>Join us to get started with your shopping experience.</p>
+        </div>
+
+        <form asp-action="Register" method="post" class="auth-form" asp-route-returnUrl=@returnUrl>
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="FullName" class="form-label"></label>
+                <input asp-for="FullName" class="form-input" placeholder="John Doe" autofocus />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-input" placeholder="name@example.com" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-input" placeholder="••••••••" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="form-label"></label>
+                <input asp-for="ConfirmPassword" class="form-input" placeholder="••••••••" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn-submit">Register</button>
+        </form>
+
+        <div class="auth-footer">
+            <p>Already have an account? <a href="/Account/Login">Log in</a></p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

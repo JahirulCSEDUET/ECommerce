@@ -1,0 +1,122 @@
+﻿@model ECommerce.Presentation.Modules.Orders.ViewModels.CheckoutVM
+
+@{
+    ViewData["Title"] = "Secure Checkout";
+    var culture = new System.Globalization.CultureInfo("bn-BD");
+
+}
+
+<div class="checkout-container pt-4">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bold text-dark">Secure Checkout</h1>
+            <p class="text-muted">Please complete your shipping details below to place your order.</p>
+        </div>
+
+        <form asp-controller="Checkout" asp-action="Index" method="post">
+            <div class="row gx-lg-5 flex-column-reverse flex-lg-row">
+
+                <div class="col-lg-7 mb-5 mb-lg-0">
+                    <div class="checkout-form-section">
+                        <h4 class="mb-4 fw-bold pb-2 border-bottom">Contact & Shipping Information</h4>
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3 fw-bold"></div>
+
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input asp-for="FullName" class="form-control" readonly />
+                                    <label asp-for="FullName"></label>
+                                </div>
+                                <span asp-validation-for="FullName" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input  asp-for="Email" class="form-control" readonly type="email" />
+                                    <label asp-for="Email"></label>
+                                </div>
+                                <span asp-validation-for="Email" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea asp-for="ShipAddress" class="form-control" placeholder="123 Main St..." style="height: 120px"></textarea>
+                                    <label asp-for="ShipAddress"></label>
+                                </div>
+                                <span asp-validation-for="ShipAddress" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="order-summary-section shadow-sm">
+                        <h4 class="mb-4 fw-bold">Order Summary</h4>
+
+                        <div class="cart-items-wrapper mb-4 border-bottom pb-3">
+                            @if (Model.Cart != null && Model.Cart.Items.Any())
+                            {
+                                foreach (var item in Model.Cart.Items)
+                                {
+                                    <div class="summary-item">
+                                        <div class="d-flex align-items-center">
+                                            <div class="product-badge me-3">
+                                                <div class="bg-white border rounded p-2 text-center" style="width: 50px; height: 50px;">
+                                                    <i class="bi bi-bag text-secondary fs-4"></i>
+                                                </div>
+                                                <span class="product-badge-count shadow-sm">@item.Quantity</span>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-0 fw-semibold text-dark">@item.ProductName</h6>
+                                                <small class="text-muted">@item.UnitPrice.ToString("C",culture) each</small>
+                                            </div>
+                                        </div>
+                                        <div class="fw-bold text-dark">
+                                            @item.LineTotal.ToString("C", culture)
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <p class="text-muted fst-italic">Your cart seems to be empty.</p>
+                            }
+                        </div>
+
+                        @if (Model.Cart != null)
+                        {
+                            <div class="d-flex justify-content-between mb-2 text-muted">
+                                <span>Subtotal</span>
+                                <span>@Model.Cart.GrandTotal.ToString("C", culture)</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3 text-muted border-bottom pb-3">
+                                <span>Shipping</span>
+                                <span class="text-success fw-semibold">Free</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-4 align-items-center">
+                                <span class="fs-5 fw-bold text-dark">Total</span>
+                                <span class="fs-3 fw-bold text-primary">@Model.Cart.GrandTotal.ToString("C", culture)</span>
+                            </div>
+                        }
+
+                        <button type="submit" class="btn btn-primary w-100 btn-place-order rounded-pill shadow-sm d-flex justify-content-center align-items-center gap-2">
+                            <i class="bi bi-lock-fill"></i> Place Order Now
+                        </button>
+
+                        <div class="text-center mt-3 text-muted small">
+                            <i class="bi bi-shield-check text-success"></i> Your transaction is secure and encrypted.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,427 @@
+﻿/* =========================================
+   Premium Form (Edit/Create) Styles
+   ========================================= */
+
+/* Adjusting the wrapper specifically for forms to be slightly narrower */
+.edit-wrapper {
+    max-width: 600px;
+}
+
+/* Header Styling */
+.edit-header {
+    padding: 32px 32px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid var(--prem-border);
+    background: #fafafa; /* Very subtle contrast for the header */
+}
+
+.edit-header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--prem-accent);
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+    .edit-header-icon svg {
+        width: 24px;
+        height: 24px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+.edit-header-text h1 {
+    margin: 0 0 4px 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--prem-text-dark);
+}
+
+.edit-header-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--prem-text-muted);
+}
+
+/* Form Body & Inputs */
+.edit-body {
+    padding: 32px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.control-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+    color: var(--prem-text-muted);
+    margin-bottom: 8px;
+}
+
+/* Premium Input Fields */
+.form-control {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+    color: var(--prem-text-dark);
+    background: var(--prem-surface);
+    border: 1px solid var(--prem-border);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    font-family: inherit;
+}
+
+    /* The magic focus state */
+    .form-control:focus {
+        outline: none;
+        border-color: var(--prem-accent);
+        box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+    }
+
+    .form-control::placeholder {
+        color: #94a3b8;
+    }
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Validation Styling */
+.text-danger {
+    font-size: 0.85rem;
+    color: var(--prem-danger);
+    margin-top: 6px;
+    display: block;
+    font-weight: 500;
+}
+
+.form-validation-summary {
+    background: rgba(239, 68, 68, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Divider & Actions */
+.form-divider {
+    height: 1px;
+    background: var(--prem-border);
+    margin: 32px -32px; /* Pulls the line exactly to the edges of the card */
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Buttons */
+.btn-save {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: white;
+    background: var(--prem-accent);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+    .btn-save:hover {
+        background: var(--prem-accent-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+    }
+
+    .btn-save svg {
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--prem-text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+    .back-link:hover {
+        color: var(--prem-text-dark);
+    }
+
+    .back-link svg {
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+/* =========================================
+   Premium Delete-Specific Modifiers
+   ========================================= */
+
+/* A red version of the top-left badge */
+.premium-badge-danger {
+    color: var(--prem-danger);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Subtle red border for the entire card to indicate danger */
+.border-danger-subtle {
+    border: 1px solid rgba(239, 68, 68, 0.3) !important;
+    box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.05), 0 20px 40px -10px rgba(239, 68, 68, 0.03);
+}
+
+/* Elegant Warning Alert Box */
+.premium-alert {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.premium-alert-danger {
+    background-color: #fef2f2;
+    border: 1px solid #f87171;
+    color: #991b1b;
+}
+
+.premium-alert .alert-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    margin-top: 2px;
+    color: #dc2626;
+}
+
+.premium-alert strong {
+    font-weight: 700;
+    color: #7f1d1d;
+}
+
+/* Spacing utility for the data list below the alert */
+.mt-4 {
+    margin-top: 24px;
+}
+
+/* Solid Danger Button for the actual Delete action */
+.btn-premium-danger-solid {
+    background: var(--prem-danger);
+    color: white;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+}
+
+    .btn-premium-danger-solid:hover {
+        background: var(--prem-danger-hover);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(239, 68, 68, 0.35);
+    }
+/* =========================================
+   Premium Details View Styles
+   ========================================= */
+
+:root {
+    --prem-bg: #f8fafc;
+    --prem-surface: #ffffff;
+    --prem-text-dark: #0f172a;
+    --prem-text-muted: #64748b;
+    --prem-border: #e2e8f0;
+    --prem-accent: #4f46e5; /* Elegant Indigo */
+    --prem-accent-hover: #4338ca;
+    --prem-danger: #ef4444; /* Soft modern red */
+    --prem-danger-hover: #dc2626;
+}
+
+.premium-wrapper {
+    max-width: 760px;
+    margin: 60px auto;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--prem-text-dark);
+}
+
+.premium-card {
+    background: var(--prem-surface);
+    border-radius: 16px;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 20px 40px -10px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+}
+
+/* Header */
+.premium-card-header {
+    padding: 32px 32px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--prem-border);
+}
+
+.premium-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    color: var(--prem-accent);
+    background: rgba(79, 70, 229, 0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.premium-title {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--prem-text-dark);
+}
+
+/* Body & Data Grid */
+.premium-card-body {
+    padding: 32px;
+}
+
+.premium-datalist {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 32px;
+    margin: 0;
+}
+
+.data-group {
+    display: flex;
+    flex-direction: column;
+}
+
+    .data-group.col-span-full {
+        grid-column: 1 / -1;
+    }
+
+    .data-group dt {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        font-weight: 600;
+        color: var(--prem-text-muted);
+        margin-bottom: 6px;
+    }
+
+    .data-group dd {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--prem-text-dark);
+        line-height: 1.5;
+    }
+
+.font-mono {
+    font-family: "JetBrains Mono", "Fira Code", monospace;
+    font-size: 0.9rem !important;
+    color: var(--prem-text-muted) !important;
+}
+
+.data-description {
+    background: #f8fafc;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--prem-border);
+    font-weight: 400 !important;
+}
+
+/* Footer & Buttons */
+.premium-card-footer {
+    padding: 20px 32px;
+    background: #f8fafc; /* Slight off-white to distinguish footer */
+    border-top: 1px solid var(--prem-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-premium {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-premium-primary {
+    background: var(--prem-accent);
+    color: white;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+    .btn-premium-primary:hover {
+        background: var(--prem-accent-hover);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+    }
+
+.btn-premium-danger {
+    background: transparent;
+    color: var(--prem-danger);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+    .btn-premium-danger:hover {
+        background: var(--prem-danger);
+        color: white;
+        border-color: var(--prem-danger);
+    }
+
+.btn-premium-ghost {
+    color: var(--prem-text-muted);
+    background: transparent;
+}
+
+    .btn-premium-ghost:hover {
+        color: var(--prem-text-dark);
+        background: rgba(226, 232, 240, 0.6);
+    }
