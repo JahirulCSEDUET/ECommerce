@@ -10,6 +10,7 @@ namespace ECommerce.Business.Modules.Orders
         Task<Order> PlaceOrderAsync( string userId, string shipAddress);
         Task<Order> GetByIdAsync(int id);
         Task<IReadOnlyList<Order>> GetAllAsync();
+        Task<IReadOnlyList<Order>> GetAllByUserIdAsync(string userId);
         Task UpdateAsync(Order order);
     }
 }

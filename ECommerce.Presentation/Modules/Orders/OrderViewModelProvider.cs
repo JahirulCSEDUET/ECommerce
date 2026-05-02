@@ -32,6 +32,16 @@ namespace ECommerce.Presentation.Modules.Orders
             return _mapper.Map<IReadOnlyList<OrderListVM>>(orders);
             
         }
+        public async Task<IReadOnlyList<OrderListVM>> GetAllByUserIdAsync(string userId)
+        {
+            var orders = await _orderService.GetAllByUserIdAsync(userId);
+            if (orders == null) {
+                return null;
+            }
+            
+            return _mapper.Map<IReadOnlyList<OrderListVM>>(orders);
+            
+        }
 
         public async Task<OrderListVM> GetByIdAsync(int id)
         {
@@ -43,10 +53,13 @@ namespace ECommerce.Presentation.Modules.Orders
             return orderVM;
         }
 
-        public async Task UpdateAsync( int id, string status)
+        public async Task UpdateAsync( int id, bool status)
         {
             var order = await _orderService.GetByIdAsync(id);
-            order.Status = status;
+            if(status)
+            {
+                order.Status = "Delivered";
+            }
             await _orderService.UpdateAsync(order);
         }
     }

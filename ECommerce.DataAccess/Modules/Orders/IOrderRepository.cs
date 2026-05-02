@@ -8,6 +8,7 @@ namespace ECommerce.DataAccess.Modules.Orders
     public interface IOrderRepository
     {
         Task<IReadOnlyList<Order>> GetAllAsync();
+        Task<IReadOnlyList<Order>> GetAllByUserIdAsync(string userId);
         Task<Order> GetByIdAsync(int orderId);
         Task<Order> AddAsync(Order order);
         Task UpdateAsync(Order order);

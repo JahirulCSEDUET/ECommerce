@@ -23,6 +23,10 @@ namespace ECommerce.Business.Modules.Orders
         {
             return await _orderRepository.GetAllAsync();
         }
+        public async Task<IReadOnlyList<Order>> GetAllByUserIdAsync(string userId)
+        {
+            return await _orderRepository.GetAllByUserIdAsync(userId);
+        }
 
         public async Task<Order> GetByIdAsync(int id)
         {

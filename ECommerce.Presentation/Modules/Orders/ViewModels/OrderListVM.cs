@@ -13,6 +13,7 @@ namespace ECommerce.Presentation.Modules.Orders.ViewModels
         public string ShipAddress { get; set; }
         public string? CustomerName { get; set; }
         public string? CustomerEmail {  get; set; }
+        public string ApplicationUserId { get; set; }
         public ICollection<OrderItemListVM> OrderItems { get; set; } = new List<OrderItemListVM>();
     }
 }

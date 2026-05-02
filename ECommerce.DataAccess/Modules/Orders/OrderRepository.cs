@@ -31,6 +31,14 @@ namespace ECommerce.DataAccess.Modules.Orders
                     
                 .ToListAsync();
         }
+        public async Task<IReadOnlyList<Order>> GetAllByUserIdAsync(string userId)
+        {
+            return await _context.Orders
+                .AsNoTracking()
+                .Where(o=> o.ApplicationUserId ==userId)
+                .Include(o=> o.OrderItems)
+                .ToListAsync();
+        }
 
         public async Task<Order?> GetByIdAsync(int orderId)
         {

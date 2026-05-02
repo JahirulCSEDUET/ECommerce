@@ -1,4 +1,5 @@
-﻿using ECommerce.Presentation.Modules.Orders;
+﻿using ECommerce.Domain.Entities;
+using ECommerce.Presentation.Modules.Orders;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,12 +23,33 @@ namespace ECommerce.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Details(int id) 
         {
-            var orders =await _orderViewModelProvider.GetByIdAsync(id);
-            if (orders == null)
+            var order =await _orderViewModelProvider.GetByIdAsync(id);
+            if (order == null)
             {
                 return NotFound();
             }
-            return View(orders);
+            return View(order);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DetailsAsync(int id, bool status) 
+        {
+            if (!ModelState.IsValid)
+            {
+                var order = await _orderViewModelProvider.GetByIdAsync(id);
+                return View(order);
+            }
+            var orde = await _orderViewModelProvider.GetByIdAsync(id);
+            if (orde == null)
+            {
+                return NotFound();
+            }
+            await _orderViewModelProvider.UpdateAsync(id, status);
+            return RedirectToAction(nameof(SuccessMessage), new {id = orde.Id});
+        }
+        public IActionResult SuccessMessage(int id)
+        {
+            return View(id);
         }
 
     }
