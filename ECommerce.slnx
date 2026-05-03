@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="ECommerce.API/ECommerce.API.csproj" Id="48186098-220d-4ab7-b3f7-edabc1cac40c" />
+  <Project Path="ECommerce.API/ECommerce.API.csproj" Id="884160f2-c5b5-4c25-b1c7-26d34c43112f" />
   <Project Path="ECommerce.Business/ECommerce.Business.csproj" />
   <Project Path="ECommerce.DataAccess/ECommerce.DataAccess.csproj" />
   <Project Path="ECommerce.Domain/ECommerce.Domain.csproj" />

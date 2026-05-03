@@ -26,9 +26,9 @@ namespace ECommerce.DataAccess.Data
             modelBuilder.Entity<Customer>().ToTable("Customer");
 
             modelBuilder.Entity<Category>().HasData(
-                new Category { Id= 1, Name="Books", Description="GoodBooks",CreateDate= new DateTime(2026, 01,01)},
-                new Category { Id= 2, Name="Cloths", Description="Good Books",CreateDate= new DateTime(2026, 01,01)},
-                new Category { Id= 3, Name="Electronics", Description="Good Books",CreateDate= new DateTime(2026, 01,01)}
+                new Category { Id= 1, Name="Books", Description="Good Books",CreateDate= new DateTime(2026, 01,01)},
+                new Category { Id= 2, Name="Cloths", Description= "Good Cloths", CreateDate= new DateTime(2026, 01,01)},
+                new Category { Id= 3, Name="Electronics", Description= "Good Electronics", CreateDate= new DateTime(2026, 01,01)}
                 );
             
             modelBuilder.Entity<Product>()
