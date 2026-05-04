@@ -34,7 +34,7 @@ namespace ECommerce.DataAccess.Identity
 
             //seed SuperAdmin
             const string saEmail = "superadmin@gmail.com";
-            const string saPassword = "Super@Admin123";
+            const string saPassword = "Super@1234";
             var saUser = await _userManager.FindByEmailAsync(saEmail);
             if (saUser == null)
             {
